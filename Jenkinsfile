@@ -1,10 +1,5 @@
 pipeline {
-agent {
-docker {
-image 'abhishekf5/maven-abhishek-docker-agent:v1'
-args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-}
-}
+agent any
 
 environment {
     SONAR_URL = "http://3.84.208.154:9000"
@@ -16,12 +11,13 @@ stages {
     stage('Checkout') {
         steps {
             echo 'Code Checkout Successful'
+            sh 'java -version'
+            sh 'mvn -version'
         }
     }
 
     stage('Build and Test') {
         steps {
-            sh 'ls -ltr'
             sh 'mvn clean package'
         }
     }
