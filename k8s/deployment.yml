@@ -15,6 +15,6 @@ app: aws-devops-cicd
 spec:
 containers:
 - name: aws-devops-cicd
-image: dineshiiiipandian/aws-devops-cicd:45
+image: dineshiiiipandian/aws-devops-cicd:46
 ports:
 - containerPort: 8080
