@@ -8,7 +8,7 @@ public class HomeController {
 
 @GetMapping("/")
 public String home() {
-    return "AWS DevOps CI/CD Pipeline Working Successfully!😎🔥";
+    return "AWS DevOps CI/CD Pipeline Working Successfully!😎🔥-Dinesh Pandian G";
 }
 
 }
