@@ -43,6 +43,23 @@ stages {
             }
         }
     }
+    stage('Update Kubernetes Manifest') {
+    steps {
+        withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
+            sh '''
+                git config user.email "dinesh@example.com"
+                git config user.name "DineshPandianG"
+
+                sed -i "s|replaceImageTag|${BUILD_NUMBER}|g" k8s/deployment.yml
+
+                git add k8s/deployment.yml
+                git commit -m "Updated image tag to ${BUILD_NUMBER}"
+
+                git push https://${GITHUB_TOKEN}@github.com/Dinesh-max-code/aws-devops-cicd-infrastructure.git HEAD:main
+            '''
+        }
+    }
+}
 
     stage('Pipeline Complete') {
         steps {
