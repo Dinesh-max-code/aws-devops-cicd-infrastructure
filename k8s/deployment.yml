@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: aws-devops-cicd
+spec:
+replicas: 1
+selector:
+matchLabels:
+app: aws-devops-cicd
+template:
+metadata:
+labels:
+app: aws-devops-cicd
+spec:
+containers:
+- name: aws-devops-cicd
+image: dineshiiiipandian/aws-devops-cicd:latest
+ports:
+- containerPort: 8080
