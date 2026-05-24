@@ -54,14 +54,13 @@ stages {
 
                 git add k8s/deployment.yml
 
-                git commit -m "Updated image tag to ${BUILD_NUMBER}" || true
+                git commit -m "[skip ci] Updated image tag to ${BUILD_NUMBER}" || true
 
                 git push https://${GITHUB_TOKEN}@github.com/Dinesh-max-code/aws-devops-cicd-infrastructure.git HEAD:main
             '''
         }
     }
 }
-
     stage('Pipeline Complete') {
         steps {
             echo 'CI/CD Pipeline Executed Successfully'
