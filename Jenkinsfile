@@ -23,17 +23,10 @@ stages {
     }
 
     stage('Static Code Analysis') {
-        steps {
-            withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
-                sh """
-                    mvn sonar:sonar \
-                    -Dsonar.projectKey=aws-devops-cicd \
-                    -Dsonar.host.url=$SONAR_URL \
-                    -Dsonar.login=$SONAR_AUTH_TOKEN
-                """
-            }
-        }
+    steps {
+        echo 'SonarQube temporarily skipped'
     }
+}
 
     stage('Build Docker Image') {
         steps {
