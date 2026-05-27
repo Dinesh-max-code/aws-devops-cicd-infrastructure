@@ -1,13 +1,21 @@
 apiVersion: v1
 kind: Service
+
 metadata:
-name: aws-devops-cicd-service
-namespace: default
+  name: aws-devops-cicd-service
+  namespace: default
+
 spec:
-selector:
-app: aws-devops-cicd
-ports:
-- protocol: TCP
-port: 80
-targetPort: 8080
-type: NodePort
+  selector:
+    app: aws-devops-cicd
+
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+
+  type: NodePort
+
+
+
+  
