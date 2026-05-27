@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: aws-devops-cicd
-          image: dineshiiiipandian/aws-devops-cicd:65
+          image: dineshiiiipandian/aws-devops-cicd:67
           imagePullPolicy: Always
 
           ports:
