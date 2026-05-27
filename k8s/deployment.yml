@@ -1,20 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
-name: aws-devops-cicd
-namespace: default
+  name: aws-devops-cicd
+  namespace: default
+
 spec:
-replicas: 1
-selector:
-matchLabels:
-app: aws-devops-cicd
-template:
-metadata:
-labels:
-app: aws-devops-cicd
-spec:
-containers:
-- name: aws-devops-cicd
-image: dineshiiiipandian/aws-devops-cicd:65
-ports:
-- containerPort: 8080
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: aws-devops-cicd
+
+  template:
+    metadata:
+      labels:
+        app: aws-devops-cicd
+
+    spec:
+      containers:
+        - name: aws-devops-cicd
+          image: dineshiiiipandian/aws-devops-cicd:65
+          imagePullPolicy: Always
+
+          ports:
+            - containerPort: 8080
